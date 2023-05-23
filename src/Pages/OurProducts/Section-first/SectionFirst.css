@@ -1,0 +1,45 @@
+.SectionFirst
+{
+    display: flex;
+    margin:20px 10% 0px 10%;
+}
+#Product-ctgry
+{
+    width: 27%;
+}
+.productHeader
+{
+    background-color:#13A6A8 ;
+    padding: 0px 10px 0px 20px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 40px;
+}
+.prodDetail
+{
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    padding:1.5px 10px 1.5px 10px;
+    background: #425567;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 30px;
+    text-align: center;
+    align-items: center;
+}
+.prodDetail > div
+{
+    margin: -3px 0 -3px 0;
+}
+#Slide-img
+{
+    width: 100%;
+    object-fit: cover;
+}
+#Slide-img > img
+{
+    width: 100%; 
+}

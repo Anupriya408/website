@@ -1,0 +1,52 @@
+.simageslidr
+{
+    position: relative;
+    /* z-index: -1; */
+}
+.simageslidr img
+{
+    height: 550px;
+    width: 80%;
+    margin:0 auto;    
+}
+.simageName
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 70px;
+    line-height: 24px;
+    font-weight: 600;
+    text-decoration:underline;
+    color:white;
+    position: absolute;
+    left: 50%;
+    top: 10%;
+    transform: translateX(-50%);
+}
+  
+  .image-overlay {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 80%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(-50%);
+  }
+  @media only screen and (max-width: 768px) {
+    .simageslidr img {
+      height: 350px;
+      width: 100%;
+    }
+    
+    .simageName {
+      font-size: 20px;
+      top: 5%;
+    }
+    
+    .image-overlay {
+      width: 100%;
+    }
+  }

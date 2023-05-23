@@ -1,0 +1,151 @@
+import React, { useState, useEffect } from 'react';
+import { Button } from './Button';
+import { Link } from 'react-router-dom';
+import './Navbar.css';
+import logo from './jakoda2.png';
+import TemporaryDrawer from './TemporaryDrawer';
+import { scroller } from 'react-scroll';
+
+function Navbar() {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.pageYOffset;
+      if (scrollTop > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+  function scrollToAbout() {
+    scroller.scrollTo('homeabout', {
+      smooth: true,
+      duration: 1400,
+      
+    });
+  }
+  function scrollToContact() {
+    scroller.scrollTo('footerhover', {
+      smooth: true,
+      duration: 1400,
+    });
+  }
+  function scrollToStrength() {
+    scroller.scrollTo('Str', {
+      smooth: true,
+      duration: 1400,
+    });
+  }
+  function scrollToBlogs() {
+    scroller.scrollTo('Blogs', {
+      smooth: true,
+      duration: 1400,
+    });
+  }
+  function scrollToIndustries() {
+    scroller.scrollTo('ind', {
+      smooth: true,
+      duration: 1400,
+    });
+  }
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+  return (
+    <>
+      <nav
+      id='top'
+        className="navbar"
+        style={{
+          position: 'sticky',
+          top: '0',
+          width: '100%',
+          backgroundColor: isScrolled ? 'white' : 'transparent',
+        }}
+      >
+        <Link to="/" className="navbar-logo" onClick={scrollToTop}>
+          <img
+            src={logo}
+            alt=""
+            style={{
+              width: '100%',
+              height: '70px',
+              marginTop: '0px',
+              position: 'relative',
+            }}
+          />
+        </Link>
+        <ul className={'nav-menu'}>
+          <li className="nav-item">
+            <a
+              className="nav-links"
+              style={{
+                color: isScrolled ? 'black' : 'white',
+              }}
+              onClick={scrollToAbout}
+            >
+              About
+            </a>
+          </li>
+          <li className="nav-item">
+            <a
+              className="nav-links"
+              style={{
+                color: isScrolled ? 'black' : 'white',
+              }}
+              onClick={scrollToContact}
+            >
+              Contact Us
+            </a>
+          </li>
+          <li className="nav-item">
+           <a
+           to="/Strength"
+              className="nav-links"
+              style={{
+                color: isScrolled ? 'black' : 'white',
+              }}
+              onClick={scrollToStrength}
+            >
+              Strength
+            </a>
+          </li>
+          <li className="nav-item">
+            <a 
+              className="nav-links"
+              style={{
+                color: isScrolled ? 'black' : 'white',
+              }}
+              onClick={scrollToBlogs}
+            >
+              Blogs
+            </a>
+          </li>
+          <li className="nav-item">
+            <a 
+            to="/Industries"
+              className="nav-links"
+              style={{
+                color: isScrolled ? 'black' : 'white',
+              }}
+              onClick={scrollToIndustries}
+            >
+              Industries
+            </a>
+          </li>
+        </ul>
+        <Button />
+        <TemporaryDrawer />
+      </nav>
+    </>
+  );
+}
+
+export default Navbar;
